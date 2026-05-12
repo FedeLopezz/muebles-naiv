@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contáctenos | Muebles Naiv">
+    <main class="relative min-h-screen py-20 overflow-hidden">
+        <!-- Imagen de fondo fija -->
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="/hero-muebles.webp" 
+                alt="Fondo Muebles Naiv" 
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 w-full">
+            <!-- Encabezado -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-serif text-[#2c3c5d] mb-4 uppercase tracking-widest">Contáctenos</h1>
+                <div class="w-70 h-1 bg-[#d64747] mx-auto mb-4"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-800 leading-relaxed">
+                En Muebles Naiv nos dedicamos a la fabricación y comercialización de muebles a medida 
+                con una tradición de calidad que nos convierte en una de los mejores fabricantes en la zona.
+                </p>
+            </div>
+
+            <!-- Formulario -->
+            <form 
+                name="contacto-naiv" 
+                method="POST" 
+                data-netlify="true" 
+                class="space-y-12 mb-20"
+            >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                    <div class="relative">
+                        <label class="block text-gray-700 text-lg mb-2">Nombre y apellido</label>
+                        <input type="text" name="nombre" required class="w-full border-b border-black bg-transparent py-2 outline-none focus:border-[#d64747] transition-colors" />
+                    </div>
+                    <div class="relative">
+                        <label class="block text-gray-700 text-lg mb-2">Correo</label>
+                        <input type="email" name="email" required class="w-full border-b border-black bg-transparent py-2 outline-none focus:border-[#d64747] transition-colors" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                    <div class="relative">
+                        <label class="block text-gray-700 text-lg mb-2">Ciudad</label>
+                        <input type="text" name="ciudad" required class="w-full border-b border-black bg-transparent py-2 outline-none focus:border-[#d64747] transition-colors" />
+                    </div>
+                    <div class="relative">
+                        <label class="block text-gray-700 text-lg mb-2">Teléfono</label>
+                        <input type="tel" name="telefono" required class="w-full border-b border-black bg-transparent py-2 outline-none focus:border-[#d64747] transition-colors" />
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <label class="block text-gray-700 text-lg mb-2">Mensaje</label>
+                    <textarea name="mensaje" rows="3" required class="w-full border-b border-black bg-transparent py-2 outline-none focus:border-[#d64747] transition-colors resize-none"></textarea>
+                </div>
+
+                <div class="flex justify-center pt-8">
+                    <button 
+                        type="submit" 
+                        class="bg-[#d64747] text-white text-xl px-16 py-3 hover:bg-[#b53a3a] transition-colors duration-300 shadow-md uppercase tracking-wider cursor-pointer"
+                    >
+                        Enviar mensaje
+                    </button>
+                </div>
+            </form>
+
+            
+
+        </div>
+        <div class="relative z-10 mx-auto px-6 w-full">
+            <div class="w-full h-[450px] shadow-2xl rounded-sm overflow-hidden border-4 border-white mt-12">
+                <iframe 
+                    src="https://www.google.com/maps?q=Calle%2061%201276,%20La%20Plata,%20Buenos%20Aires&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </div>
+            
+            <div class="mt-6 text-center text-[#2c3c5d] font-serif uppercase tracking-widest text-sm">
+                <p>Calle 61 1276, La Plata, Buenos Aires</p>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    h1 {
+        font-family: 'Times New Roman', Times, serif;
+    }
+</style>

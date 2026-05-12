@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const imagenes = import.meta.glob('/public/proyectos/**/*.{webp,jpg,jpeg,png}', { eager: true });
+
+const proyectos = Object.keys(imagenes).map((path) => {
+    const partes = path.split('/');
+    const categoria = partes[partes.length - 2];
+    const nombreArchivo = partes[partes.length - 1];
+    
+    return {
+        img: path.replace('/public', ''), 
+        categoria: categoria,
+        titulo: nombreArchivo.split('.')[0].replace(/-/g, ' ')
+    };
+});
+
+const categoriasUnicas = ['todos', ...new Set(proyectos.map(p => p.categoria))];
+---
+<Layout title="Proyectos | Muebles Naiv">
+    <main class="py-20 bg-gray-50 min-h-screen">
+        <div class="mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-serif text-[#2c3c5d] mb-4 uppercase tracking-widest">Nuestros Proyectos</h1>
+                <div class="w-110 h-1 bg-[#d64747] mx-auto"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                {categoriasUnicas.map(cat => (
+                    <button 
+                    class="filter-btn px-6 py-2 border border-[#2c3c5d] text-[#2c3c5d] uppercase text-[10px] tracking-widest hover:bg-[#2c3c5d] hover:text-white transition-all rounded-full"
+                    data-category={cat}
+                    >
+                    {cat}
+                    </button>
+                ))}
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full" id="proyectos-grid">
+                {proyectos.map(proy => (
+                    <div 
+                    class="proyecto-item group relative overflow-hidden bg-white shadow-sm aspect-square w-full cursor-zoom-in" 
+                    data-category={proy.categoria}
+                    >
+                        <img 
+                            src={proy.img} 
+                            alt={proy.titulo} 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            loading="lazy"
+                        />
+                        <!-- Overlay sutil al pasar el mouse -->
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-sm uppercase tracking-widest border border-white px-4 py-2">Ver imagen</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL PARA VER IMAGEN (Lightbox) -->
+    <div id="modal-image" class="fixed inset-0 z-[200] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 cursor-pointer">
+        <button id="close-modal" class="absolute top-5 right-5 text-white hover:text-[#d64747] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        
+        <img id="modal-img-content" src="" alt="Vista previa" class="max-w-full max-h-full object-contain shadow-2xl transition-transform duration-300 scale-95" />
+    </div>
+
+    <Footer />
+</Layout>
+
+<script>
+    // --- LÓGICA DE FILTRADO ---
+    const buttons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.proyecto-item');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.getAttribute('data-category');
+            buttons.forEach(b => b.classList.remove('bg-[#2c3c5d]', 'text-white'));
+            btn.classList.add('bg-[#2c3c5d]', 'text-white');
+
+            items.forEach(item => {
+                const itemCat = item.getAttribute('data-category');
+                if (category === 'todos' || category === itemCat) {
+                    (item as HTMLElement).style.display = 'block';
+                } else {
+                    (item as HTMLElement).style.display = 'none';
+                }
+            });
+        });
+    });
+
+    document.querySelector('[data-category="todos"]')?.classList.add('bg-[#2c3c5d]', 'text-white');
+
+    // --- LÓGICA DEL MODAL (Lightbox) ---
+    const modal = document.getElementById('modal-image');
+    const modalImg = document.getElementById('modal-img-content') as HTMLImageElement;
+    const closeModal = document.getElementById('close-modal');
+
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            if (img && modal && modalImg) {
+                modalImg.src = img.src;
+                modal.classList.remove('hidden');
+                // Pequeño delay para la animación de entrada
+                setTimeout(() => modalImg.classList.remove('scale-95'), 10);
+                document.body.style.overflow = 'hidden'; // Bloquea el scroll de la página
+            }
+        });
+    });
+
+    const closeHandler = () => {
+        if (modal && modalImg) {
+            modalImg.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Habilita el scroll de nuevo
+            }, 200);
+        }
+    };
+
+    closeModal?.addEventListener('click', closeHandler);
+    modal?.addEventListener('click', (e) => {
+        if (e.target === modal) closeHandler();
+    });
+</script>
+
+<style>
+    h1 { font-family: 'Times New Roman', Times, serif; }
+</style>

@@ -1,0 +1,44 @@
+---
+import { MapPin, Phone, Mail, Clock } from 'lucide-astro';
+---
+
+<footer class="bg-[#2c3c5d] pt-20 pb-10 border-t border-[#3a4d74] text-white">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row flex-wrap justify-around items-start gap-y-12 text-center md:text-left">
+    
+        <div class="min-w-[250px]">
+            <h3 class="text-[11px] uppercase tracking-[0.2em] font-bold mb-6 text-blue-200">Dirección</h3>
+            <div class="flex items-start justify-center md:justify-start gap-3 text-sm text-gray-100">
+                <MapPin size={18} class="shrink-0 text-blue-300" strokeWidth={1.5} />
+                <p class="leading-relaxed">Calle 61 1276, entre 20 y 21,<br />CP 1900, La Plata, Buenos Aires</p>
+            </div>
+        </div>
+
+        <div class="min-w-[250px]">
+            <h3 class="text-[11px] uppercase tracking-[0.2em] font-bold mb-6 text-blue-200">Contacto</h3>
+            <div class="space-y-4 text-sm text-gray-100">
+                <a href="mailto:naivamoblamientos@hotmail.com" class="flex items-center justify-center md:justify-start gap-3 hover:text-white transition opacity-90 hover:opacity-100">
+                <Mail size={18} class="text-blue-300" strokeWidth={1.5} /> naivamoblamientos@hotmail.com
+                </a>
+                <a href="tel:02214539319" class="flex items-center justify-center md:justify-start gap-3 hover:text-white transition opacity-90 hover:opacity-100">
+                <Phone size={18} class="text-blue-300" strokeWidth={1.5} /> (0221) 453 9319
+                </a>
+            </div>
+        </div>
+
+        <div class="min-w-[250px]">
+            <h3 class="text-[11px] uppercase tracking-[0.2em] font-bold mb-6 text-blue-200">Horario de Atención</h3>
+            <div class="flex items-start justify-center md:justify-start gap-3 text-sm text-gray-100">
+                <Clock size={18} class="shrink-0 text-blue-300" strokeWidth={1.5} />
+                <div>
+                <p>Lunes a Viernes de 08:30 a 18:00 Hs.</p>
+                <span class="italic text-[11px] mt-2 block text-blue-200/70">- Pago a convenir -</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-20 pt-8 border-t border-white/10 text-center text-[10px] uppercase tracking-widest text-blue-200/50">
+        &copy; {new Date().getFullYear()} Muebles Naiv. Todos los derechos reservados.
+    </div>
+</footer>
