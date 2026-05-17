@@ -2,71 +2,72 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Muebles Naiv | Diseño a Medida en La Plata">
-	<section class="relative h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
-		<!-- Imagen de fondo -->
-		<div class="absolute inset-0 z-0">
-			<img 
-				src="/hero-muebles.webp" 
-				alt="Muebles de cocina a medida" 
-				class="w-full h-full object-cover opacity-50"
-			/>
-		</div>
-		
-		<div class="relative z-10 text-center text-white px-4">
-			<h1 class="text-5xl md:text-7xl font-extralight mb-6 uppercase tracking-[0.2em]">Muebles Naiv</h1>
-			<p class="text-lg md:text-2xl mb-10 font-light italic opacity-90">Carpintería de autor para espacios únicos</p>
-			<a href="/proyectos" class="border border-white px-10 py-4 uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300">
-				Ver Proyectos
-			</a>
-		</div>
-	</section>
-	<section class="py-20 bg-white">
-		<div class="max-w-7xl mx-auto px-6">
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-				
-				<!-- Fabricación a Medida -->
-				<div class="text-center group">
-					<div class="mb-6 inline-block p-4 rounded-full bg-gray-50 group-hover:bg-[#2c3c5d] transition-colors">
-					<!-- Icono de Regla/Escuadra -->
-					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#2c3c5d] group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-					</svg>
-				</div>
-				<h3 class="text-xl font-serif mb-4 uppercase tracking-wider">Fabricación a Medida</h3>
-				<p class="text-gray-600 leading-relaxed">
-					Diseñamos cada pieza ajustándonos milimétricamente a tu espacio disponible, optimizando cada rincón de tu hogar.
-				</p>
-				</div>
+<Layout 
+    title="Muebles de Melamina a Medida en La Plata" 
+    description="Fabricantes de muebles de melamina a medida en La Plata. Diseños exclusivos para cocinas, dormitorios, vestidores y oficinas comerciales. ¡Pedí tu presupuesto!"
+>
+    <section class="relative h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="/hero-muebles.webp" 
+                alt="Diseño y fabricación de muebles a medida en La Plata por Muebles Naiv" 
+                class="w-full h-full object-cover opacity-50"
+            />
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-4xl md:text-6xl font-extralight mb-4 uppercase tracking-[0.2em] leading-tight">
+                Muebles Naiv
+                <span class="block text-xl md:text-2xl mt-4 tracking-[0.1em] font-light text-gray-300">Muebles de Melamina a Medida La Plata</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-10 font-light italic opacity-90">Fabricantes de amoblamientos para espacios únicos</p>
+            <a href="/proyectos" class="border border-white px-10 py-4 uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+                Ver Proyectos
+            </a>
+        </div>
+    </section>
 
-				<!-- Diseños Exclusivos -->
-				<div class="text-center group">
-					<div class="mb-6 inline-block p-4 rounded-full bg-gray-50 group-hover:bg-[#2c3c5d] transition-colors">
-						<!-- Icono de Lápiz/Diseño -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#2c3c5d] group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-						</svg>
-					</div>
-					<h3 class="text-xl font-serif mb-4 uppercase tracking-wider">Diseños Exclusivos</h3>
-					<p class="text-gray-600 leading-relaxed">
-						Fusionamos funcionalidad con las últimas tendencias estéticas para crear ambientes únicos que reflejen tu personalidad.
-					</p>
-				</div>
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <div class="text-center group">
+                    <div class="mb-6 inline-block p-4 rounded-full bg-gray-50 group-hover:bg-[#2c3c5d] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#2c3c5d] group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-serif mb-4 uppercase tracking-wider text-[#2c3c5d]">Muebles de Melamina a Medida</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Como fabricantes expertos, diseñamos cada pieza ajustándonos milimétricamente a tu espacio disponible, optimizando cocinas, vestidores y dormitorios.
+                    </p>
+                </div>
 
-				<!-- Calidad Garantizada -->
-				<div class="text-center group">
-					<div class="mb-6 inline-block p-4 rounded-full bg-gray-50 group-hover:bg-[#2c3c5d] transition-colors">
-						<!-- Icono de Medalla/Check -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#2c3c5d] group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-					</div>
-					<h3 class="text-xl font-serif mb-4 uppercase tracking-wider">Calidad Artesanal</h3>
-					<p class="text-gray-600 leading-relaxed">
-						Utilizamos materiales de primera línea y alta durabilidad para asegurar que tus muebles duren toda la vida.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
+                <div class="text-center group">
+                    <div class="mb-6 inline-block p-4 rounded-full bg-gray-50 group-hover:bg-[#2c3c5d] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#2c3c5d] group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-serif mb-4 uppercase tracking-wider text-[#2c3c5d]">Cocinas E Interiores del Hogar</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Especialistas en muebles para la casa a medida en La Plata. Fusionamos funcionalidad y las últimas tendencias en placas de melamina para crear ambientes únicos.
+                    </p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="mb-6 inline-block p-4 rounded-full bg-gray-50 group-hover:bg-[#2c3c5d] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#2c3c5d] group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-serif mb-4 uppercase tracking-wider text-[#2c3c5d]">Muebles para Comercios a Medida</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Desarrollamos equipamiento comercial y corporativo de alta resistencia. Amoblamientos de melamina duraderos con herrajes de primera línea.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 </Layout>
